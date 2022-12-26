@@ -1,0 +1,126 @@
+{
+  "variables" : {
+    "CC": "g++",
+    "CFLAGS": "-std=c++17 -Wall -g3",
+    "LFLAGS": "`sdl2-config --libs` -lsdl2_image -lsdl2_mixer",
+    "IFLAGS": "`sdl2-config --cflags` -I${INC_PATH}",
+    "INC_PATH": "./inc/",
+    "SRC_PATH": "./src/",
+    "OUT_PATH": "./out/",
+    "BIN_PATH": "./bin/"
+  },
+  "targets": [
+    {
+      "name": "run",
+      "directory": "${BIN_PATH}",
+      "commands": [ "./game" ]
+    },
+    {
+      "name": "all",
+      "force": true,
+      "targets": [ "clean", "main" ],
+      "commands": [ "echo \"Done!\"" ]
+    },
+    {
+      "name": "mkdirs",
+      "commands": [
+        "mkdir -p out",
+        "mkdir -p bin",
+        "mkdir -p inc"
+
+      ]
+    },
+    {
+      "name": "main",
+      "targets": [
+        "mkdirs",
+        "game.o",
+        "screen.o",
+        "block.o",
+        "level.o",
+        "entity.o",
+        "player.o",
+        "enemy.o",
+        "bitmap.o",
+        "bitmap3d.o",
+        "menu.o",
+        "art.o",
+        "sound.o",
+        "engine.o"
+      ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}main.cpp ${OUT_PATH}*.o ${IFLAGS} ${LFLAGS} -o ${BIN_PATH}game" ]
+    },
+    {
+      "name": "game.o",
+      "onchange": [ "${SRC_PATH}game.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}game.cpp ${IFLAGS} -c -o ${OUT_PATH}game.o" ]
+    },
+    {
+      "name": "engine.o",
+      "onchange": [ "${SRC_PATH}engine.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}engine.cpp ${IFLAGS} -c -o ${OUT_PATH}engine.o" ]
+    },
+    {
+      "name": "screen.o",
+      "onchange": [ "${SRC_PATH}gui/screen.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}gui/screen.cpp ${IFLAGS} -c -o ${OUT_PATH}screen.o" ]
+    },
+    {
+      "name": "block.o",
+      "onchange": [ "${SRC_PATH}level/block/block.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}level/block/block.cpp ${IFLAGS} -c -o ${OUT_PATH}block.o" ]
+    },
+    {
+      "name": "level.o",
+      "onchange": [ "${SRC_PATH}level/level.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}level/level.cpp ${IFLAGS} -c -o ${OUT_PATH}level.o" ]
+    },
+    {
+      "name": "entity.o",
+      "onchange": [ "${SRC_PATH}entities/entity.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}entities/entity.cpp ${IFLAGS} -c -o ${OUT_PATH}entity.o" ]
+    },
+    {
+      "name": "player.o",
+      "onchange": [ "${SRC_PATH}entities/player.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}entities/player.cpp ${IFLAGS} -c -o ${OUT_PATH}player.o" ]
+    },
+    {
+      "name": "enemy.o",
+      "onchange": [ "${SRC_PATH}entities/enemy.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}entities/enemy.cpp ${IFLAGS} -c -o ${OUT_PATH}enemy.o" ]
+    },
+    {
+      "name": "bitmap.o",
+      "onchange": [ "${SRC_PATH}gui/bitmap.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}gui/bitmap.cpp ${IFLAGS} -c -o ${OUT_PATH}bitmap.o" ]
+    },
+    {
+      "name": "bitmap3d.o",
+      "onchange": [ "${SRC_PATH}gui/bitmap3d.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}gui/bitmap3d.cpp ${IFLAGS} -c -o ${OUT_PATH}bitmap3d.o" ]
+    },
+    {
+      "name": "menu.o",
+      "onchange": [ "${SRC_PATH}menu/menu.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}menu/menu.cpp ${IFLAGS} -c -o ${OUT_PATH}menu.o" ]
+    },
+    {
+      "name": "art.o",
+      "onchange": [ "${SRC_PATH}art.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}art.cpp ${IFLAGS} -c -o ${OUT_PATH}art.o" ]
+    },
+    {
+      "name": "sound.o",
+      "onchange": [ "${SRC_PATH}sound.cpp" ],
+      "commands": [ "${CC} ${CFLAGS} ${SRC_PATH}sound.cpp ${IFLAGS} -c -o ${OUT_PATH}sound.o" ]
+    },
+    {
+      "name": "clean",
+      "commands": [
+        "rm -rf ${BIN_PATH}game",
+        "rm -rf ${OUT_PATH}*.o"
+      ]
+    }
+  ]
+}

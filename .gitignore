@@ -1,0 +1,9 @@
+.build
+.cache
+.vscode
+out/*
+bin/game
+bin/game*
+.DS_Store
+compile_commands.json
+build
