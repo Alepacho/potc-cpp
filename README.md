@@ -1,14 +1,15 @@
 # C++ port of 'Prelude of the Chambered'
 
-[](./screenshots/title.png)
+![](./screenshots/title.png)
 
 ### _Made by me, only for study purpose_.
 Based on original source code which I got [here](https://github.com/skeeto/Prelude-of-the-Chambered). And I used to watch some old Notch streams to understand some stuff. You can watch streams [here](https://www.youtube.com/@hikearchive/videos) (thanks to Hike's Archive).
 
 # Screenshots
 
-[](./screenshots/game.png)
-[](./screenshots/win.png)
+
+![](./screenshots/game.png)
+![](./screenshots/win.png)
 
 # Disclaimer
 Game is fully completable, but...
