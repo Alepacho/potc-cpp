@@ -106,7 +106,7 @@ Level::~Level() {
     delete solidWall;
     delete levelBitmap;
 
-    for (int i = 0; i < blocks.size(); i++) {
+    for (size_t i = 0; i < blocks.size(); i++) {
         delete blocks[i];
     }
 }
@@ -125,7 +125,7 @@ void Level::init(Game* game, std::string name, Bitmap* bitmap) {
     int* pixels = levelBitmap->pixels;
     width = w; height = h;
 
-    for (int i = 0; i < blocks.size(); i++) {
+    for (size_t i = 0; i < blocks.size(); i++) {
         delete blocks[i];
     }
 
@@ -220,7 +220,7 @@ bool Level::containsBlockingEntity(double x0, double y0, double x1, double y1) {
     for (int z = zc - rr; z <= zc + rr; z++) {
         for (int x = xc - rr; x <= xc + rr; x++) {
             std::vector<Entity*> es = getBlock(x, z)->entities;
-            for (int i = 0; i < es.size(); i++) {
+            for (size_t i = 0; i < es.size(); i++) {
                 Entity* e = es.at(i);
                 if (e->isInside(x0, y0, x1, y1)) return true;
             }
@@ -236,7 +236,7 @@ bool Level::containsBlockingNonFlyingEntity(double x0, double y0, double x1, dou
     for (int z = zc - rr; z <= zc + rr; z++) {
         for (int x = xc - rr; x <= xc + rr; x++) {
             std::vector<Entity*> es = getBlock(x, z)->entities;
-            for (int i = 0; i < es.size(); i++) {
+            for (size_t i = 0; i < es.size(); i++) {
                 Entity* e = es.at(i);
                 if (!e->flying && e->isInside(x0, y0, x1, y1)) return true;
             }
@@ -246,7 +246,7 @@ bool Level::containsBlockingNonFlyingEntity(double x0, double y0, double x1, dou
 }
 
 void Level::tick() {
-    for (int i = 0; i < entities.size(); i++) {
+    for (size_t i = 0; i < entities.size(); i++) {
         Entity* e = entities.at(i);
         e->tick();
         e->updatePos();

@@ -59,7 +59,7 @@ public:
     virtual void addSprite(Sprite* sprite) { sprites.push_back(sprite); }
     virtual bool use(Level* level, Item* item) { return false; }
     virtual void tick() {
-        for (int i = 0; i < sprites.size(); i++) {
+        for (size_t i = 0; i < sprites.size(); i++) {
             Sprite* sprite = sprites.at(i);
             sprite->tick();
             if (sprite->removed) {

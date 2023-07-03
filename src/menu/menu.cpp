@@ -18,7 +18,7 @@ void TitleMenu::_render(Bitmap* target) {
     target->fill(0, 0, 160, 120, 0);
     target->draw(art.logo, 0, 8, 0, 0, 160, 36, art.getCol(0xffffff));
 
-    for (int i = 0; i < options.size(); i++) {
+    for (size_t i = 0; i < options.size(); i++) {
         auto msg = options[i];
         int col = 0x909090;
         if (selected == i) {
@@ -76,7 +76,7 @@ void AboutMenu::_render(Bitmap* target) {
         "in just 48 hours.",
     };
     
-    for (int i = 0; i < lines.size(); i++) {
+    for (size_t i = 0; i < lines.size(); i++) {
         target->draw(lines[i], 4, 28 + i * 8, art.getCol(0xa0a0a0));
     }
 
@@ -110,7 +110,7 @@ void InstructionsMenu::_render(Bitmap* target) {
         "Space uses items",
     };
     
-    for (int i = 0; i < lines.size(); i++) {
+    for (size_t i = 0; i < lines.size(); i++) {
         target->draw(lines[i], 4, 32 + i * 8, art.getCol(0xa0a0a0));
     }
 
@@ -132,7 +132,7 @@ bool use) {
 void PauseMenu::_render(Bitmap* target) {
     target->draw(art.logo, 0, 8, 0, 0, 160, 36, art.getCol(0xffffff));
 
-    for (int i = 0; i < options.size(); i++) {
+    for (size_t i = 0; i < options.size(); i++) {
         std::string msg = options[i];
         int col = 0x909090;
         if (selected == i) {

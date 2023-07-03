@@ -17,7 +17,7 @@ void Screen::render(Game *game, bool hasFocus) {
         if (game->pauseTime > 0) {
             fill(0, 0, width, height, 0);
             std::vector<std::string> messages = { "Entering " + game->level->name, };
-            for (int y = 0; y < messages.size(); y++) {
+            for (size_t y = 0; y < messages.size(); y++) {
                 draw(messages[y], (width - messages[y].length() * 6) / 2, (viewport->height - messages.size() * 8) / 2 + y * 8 + 1, 0x111111);
                 draw(messages[y], (width - messages[y].length() * 6) / 2, (viewport->height - messages.size() * 8) / 2 + y * 8, 0x555544);
             }
@@ -27,7 +27,7 @@ void Screen::render(Game *game, bool hasFocus) {
 
             Block* block = game->level->getBlock((int) (game->player->x + 0.5), (int) (game->player->z + 0.5));
             if (block->messages.size() > 0 && hasFocus) {
-                for (int y = 0; y < block->messages.size(); y++) {
+                for (size_t y = 0; y < block->messages.size(); y++) {
                     viewport->draw(block->messages[y], (width - block->messages[y].length() * 6) / 2,
                         (viewport->height - block->messages.size() * 8) / 2 + y * 8 + 1, 0x111111);
                     viewport->draw(block->messages[y], (width - block->messages[y].length() * 6) / 2,

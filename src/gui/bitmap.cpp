@@ -35,8 +35,8 @@ void Bitmap::draw(Bitmap* bitmap, int xOffs, int yOffs, int xo, int yo, int w, i
 }
 
 void Bitmap::draw(std::string string, int x, int y, int col) {
-    for (int i = 0; i < string.length(); i++) {
-        int ch = chars.find(string[i]); // chars.indexOf(string.charAt(i));
+    for (size_t i = 0; i < string.length(); i++) {
+        size_t ch = chars.find(string[i]); // chars.indexOf(string.charAt(i));
         if (ch == std::string::npos) continue;
 
         int xx = ch % 42;

@@ -257,15 +257,15 @@ void Bitmap3D::render(Game* game) {
         for (int xb = xCenter - r; xb <= xCenter + r; xb++) {
             Block* c = level->getBlock(xb, zb);
 
-            for (int j = 0; j < c->entities.size(); j++) {
+            for (size_t j = 0; j < c->entities.size(); j++) {
                 Entity* e = c->entities.at(j);
-                for (int i = 0; i < e->sprites.size(); i++) {
+                for (size_t i = 0; i < e->sprites.size(); i++) {
                     Sprite* sprite = e->sprites.at(i);
                     renderSprite(e->x + sprite->x, 0 - sprite->y, e->z + sprite->z, sprite->tex, sprite->color);
                 }
             }
 
-            for (int i = 0; i < c->sprites.size(); i++) {
+            for (size_t i = 0; i < c->sprites.size(); i++) {
                 Sprite* sprite = c->sprites.at(i);
                 renderSprite(xb + sprite->x, 0 - sprite->y, zb + sprite->z, sprite->tex, sprite->color);
             }

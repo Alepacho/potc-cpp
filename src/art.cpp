@@ -26,8 +26,8 @@ Bitmap* Art::loadBitmap(std::string fileName) {
         
         int* p = (int*)img->pixels;
         for (int i = 0; i < w * h; i++) {
-            int in = *(p + i);
-            int col = (in & 0xf) >> 2;
+            unsigned int in = *(p + i);
+            unsigned int col = (in & 0xf) >> 2;
             if (in == 0xffff00ff) col = -1;
             result->pixels[i] = col;
         }

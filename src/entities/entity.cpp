@@ -111,7 +111,7 @@ bool Entity::isFree(double xx, double yy) {
     for (int z = zc - rr; z <= zc + rr; z++) {
         for (int x = xc - rr; x <= xc + rr; x++) {
             std::vector<Entity*> es = level->getBlock(x, z)->entities;
-            for (int i = 0; i < es.size(); i++) {
+            for (int i = 0; i < (int)es.size(); i++) {
                 Entity* e = es.at(i);
                 if (e == this) continue;
 

@@ -143,7 +143,7 @@ void Player::activate() {
         for (int x = xc - rr; x <= xc + rr; x++) {
             std::vector<Entity*> es = level->getBlock(x, z)->entities;
             // trace(tstr(x) + ", " + tstr(y), es.size());
-            for (int i = 0; i < es.size(); i++) {
+            for (int i = 0; i < (int)es.size(); i++) {
                 Entity* e = es.at(i);
                 if (e == this) continue;
                 possibleHits.push_back(e);
@@ -155,7 +155,7 @@ void Player::activate() {
     for (int i = 0; i < divs; i++) {
         double xx = x + xa * i / divs;
         double zz = z + za * i / divs;
-        for (int j = 0; j < possibleHits.size(); j++) {
+        for (int j = 0; j < (int)possibleHits.size(); j++) {
             Entity* e = possibleHits.at(j);
             if (e->contains(xx, zz)) {
                 if (e->use(this, items[selectedSlot])) {

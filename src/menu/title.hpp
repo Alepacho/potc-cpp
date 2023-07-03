@@ -10,7 +10,7 @@
 class TitleMenu : public Menu {
 private:
     std::vector<std::string> options;
-    int selected;
+    size_t selected;
     bool firstTick;
 
     void _render(Bitmap* target);

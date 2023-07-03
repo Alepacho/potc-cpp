@@ -9,7 +9,7 @@
 class PauseMenu : public Menu {
 private:
     std::vector<std::string> options;
-    int selected;
+    size_t selected;
 
     void _render(Bitmap* target);
     void _tick(Game* game, 
