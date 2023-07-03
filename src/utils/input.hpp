@@ -1,7 +1,7 @@
 #ifndef POTC_INPUT_H
 #define POTC_INPUT_H
 
-// #include <SDL2/SDL.h>
+// #include <SDL.h>
 
 namespace KEY_EVENT {
     enum {
